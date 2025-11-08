@@ -12,10 +12,7 @@
     "@auth/prisma-adapter": "^2.11.1",
     "@hookform/resolvers": "^5.2.2",
     "@prisma/client": "^6.18.0",
-<<<<<<< HEAD
     "@prisma/extension-accelerate": "^2.0.2",
-=======
->>>>>>> 805bd84b8ac7d190919c3e38d1c422542c75c31a
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-aspect-ratio": "^1.1.7",

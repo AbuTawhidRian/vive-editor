@@ -22,6 +22,7 @@ model User {
   image     String?
   accounts  Account[]
   myPlaygrounds Playground[]
+  staredPlayground StarMark[]
   roles     UserRole @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -84,8 +85,19 @@ model Playground {
   userId      String    @db.ObjectId
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-
+  StarMark    StarMark[]
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model StarMark{
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String  @db.ObjectId
+  playgroundId  String  @db.ObjectId
+  isMarked      Boolean
+  createdAt     DateTime  @default(now())
 
+  user          User  @relation(fields: [userId], references:[id], onDelete: Cascade)
+  playground    Playground  @relation(fields: [playgroundId], references:[id], onDelete: Cascade)
+
+  @@unique([userId, playgroundId])
+}
